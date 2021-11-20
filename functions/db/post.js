@@ -24,6 +24,19 @@ const getAllPosts = async (client) => {
     );
   
     return convertSnakeToCamel.keysToCamel(rows);
-  };
+};
 
-module.exports = { addPost, getAllPosts };
+const getPostById = async (client, postId) => {
+    const { rows } = await client.query(
+        /*sql*/`
+        SELECT * FROM post
+        WHERE id = $1
+            AND is_deleted = false
+        `,
+        [postId]
+    );
+
+    return convertSnakeToCamel.keysToCamel(rows[0])
+};
+
+module.exports = { addPost, getAllPosts, getPostById };
