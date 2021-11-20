@@ -1,6 +1,5 @@
 const convertSnakeToCamel = require('../lib/convertSnakeToCamel');
 
-HEAD
 const addPost = async (client, userId, title, hashtagLocation, hashtagTime, maxCount, description, imageUrl) => {
   const { rows } = await client.query(
     /*sql*/`
