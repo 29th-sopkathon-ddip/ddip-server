@@ -12,4 +12,16 @@ const addUser = async (client,name) => {
   return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
-module.exports = { addUser };
+const getUser = async (client,userId) => {
+    const { rows } = await client.query(
+      /*sql*/`
+      SELECT * FROM "user"
+      WHERE "user".id = ${userId}
+      AND "user".is_deleted = false
+      `,
+    );
+  
+    return convertSnakeToCamel.keysToCamel(rows[0]);
+  };
+
+module.exports = { addUser,getUser };
