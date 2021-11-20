@@ -9,7 +9,7 @@ const addUser = async (client,name) => {
     `,[name]
   );
 
-  return convertSnakeToCamel.keysToCamel(rows);
+  return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
 module.exports = { addUser };
