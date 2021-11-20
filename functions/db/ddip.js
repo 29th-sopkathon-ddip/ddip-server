@@ -24,6 +24,21 @@ const getDdipsByPostId = async (client,postId) => {
   };
 
 
+const getDdipsByPostIdWithUser = async (client,postId) => {
+    const { rows } = await client.query(
+      /*sql*/`
+      SELECT "user".* FROM ddip
+        LEFT JOIN "user" ON "user".id = ddip.user_id
+      WHERE "user".is_deleted = false
+      AND ddip.is_deleted = false
+      AND ddip.post_id = ${postId}
+      `,
+    );
+  
+    return convertSnakeToCamel.keysToCamel(rows);
+  };
+
+
 const addDdip = async (client, postId,userId) => {
     const { rows } = await client.query(
       /*sql*/`
@@ -35,4 +50,4 @@ const addDdip = async (client, postId,userId) => {
   
     return convertSnakeToCamel.keysToCamel(rows[0]);
   };
-module.exports = { getAllDdips ,getDdipsByPostId,addDdip};
+module.exports = { getAllDdips ,getDdipsByPostId,addDdip,getDdipsByPostIdWithUser};

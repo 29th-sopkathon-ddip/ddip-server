@@ -38,6 +38,20 @@ const getAllPosts = async (client) => {
     return convertSnakeToCamel.keysToCamel(rows[0]);
  };
 
+ const getPostByIdWithUser = async (client,postId) => {
+  const { rows } = await client.query(
+    /*sql*/`
+    SELECT post.*,"user".name AS user_name FROM post
+    LEFT JOIN "user" ON "user".id = post.user_id
+    WHERE "user".is_deleted = false
+    AND post.is_deleted = false
+    AND post.id = ${postId}
+    `,
+  );
+
+  return convertSnakeToCamel.keysToCamel(rows[0]);
+};
+
 const updatePostCountById = async (client,postId) => {
     const { rows } = await client.query(
       /*sql*/`
@@ -51,4 +65,4 @@ const updatePostCountById = async (client,postId) => {
     return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
-module.exports = {addPost, getAllPosts,getPostById,updatePostCountById };
+module.exports = {addPost, getAllPosts,getPostById,updatePostCountById,getPostByIdWithUser };
