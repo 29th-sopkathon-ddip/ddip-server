@@ -24,13 +24,11 @@ module.exports = async (req, res) => {
 
     console.log(post);
 
-    if (post === undefined) {
+    if (post === undefined) { // 일치하는 게시글이 없을 때 fail
         return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST, "해당 아이디의 게시글 없음"))
     };
 
     res.status(statusCode.OK).send(util.success(statusCode.OK, "게시글 조회 성공", {post,dippedUser:users}));
-
-    // 일치하는 게시글이 없을 때 fail 날리기
 
   } catch (error) {
     functions.logger.error(`[ERROR] [${req.method.toUpperCase()}] ${req.originalUrl}`, `[CONTENT] ${error}`);
