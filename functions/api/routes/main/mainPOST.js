@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
   try {
     client = await db.connect(req);
     const user = await userSQL.addUser(client,name)
-    res.status(statusCode.OK).send(util.success(statusCode.OK, responseMessage.READ_ALL_USERS_SUCCESS, {user}))
+    res.status(statusCode.OK).send(util.success(statusCode.OK, responseMessage.READ_ALL_USERS_SUCCESS, user))
 
   } catch (error) {
     functions.logger.error(`[ERROR] [${req.method.toUpperCase()}] ${req.originalUrl}`, `[CONTENT] ${error}`);

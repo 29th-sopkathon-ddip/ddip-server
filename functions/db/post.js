@@ -1,5 +1,6 @@
 const convertSnakeToCamel = require('../lib/convertSnakeToCamel');
 
+<<<<<<< HEAD
 const addPost = async (client, userId, title, hashtagLocation, hashtagTime, maxCount, description, imageUrl) => {
   const { rows } = await client.query(
     /*sql*/`
@@ -14,4 +15,16 @@ const addPost = async (client, userId, title, hashtagLocation, hashtagTime, maxC
   return convertSnakeToCamel.keysToCamel(rows[0]);
 };
 
-module.exports = { addPost };
+const getAllPosts = async (client) => {
+    const { rows } = await client.query(
+      /*sql*/`
+      SELECT * FROM post
+      WHERE is_deleted = false
+      ORDER BY created_at DESC
+      `,
+    );
+  
+    return convertSnakeToCamel.keysToCamel(rows);
+  };
+
+module.exports = { addPost, getAllPosts };
