@@ -1,8 +1,6 @@
 const functions = require('firebase-functions');
-const { serializeError } = require('serialize-error');
 const _ = require('lodash');
-
-const db = require('../../../sql/db');
+const db = require('../../../db/db');
 
 module.exports = async (req, res) => {
   const {  } = req.body;
