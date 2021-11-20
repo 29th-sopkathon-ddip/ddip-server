@@ -1,6 +1,5 @@
 const functions = require('firebase-functions');
 const _ = require('lodash');
-
 const db = require('../../../db/db');
 
 module.exports = async (req, res) => {
