@@ -16,6 +16,7 @@ module.exports = async (req, res) => {
     client = await db.connect(req);
     const user = await userSQL.getUser(client,userId)
     const posts = await postSQL.getAllPosts(client)
+    
     const ddips = await ddipSQL.getAllDdips(client)
 
 
