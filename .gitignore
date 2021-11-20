@@ -64,3 +64,8 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+.DS_Store
+
+#private key
+sopkathon-ddip-firebase-adminsdk-ihf3b-a84c58dffc.json
