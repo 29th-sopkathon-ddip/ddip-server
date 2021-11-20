@@ -81,3 +81,14 @@ https://royal-fennel-664.notion.site/API-d33703f9b0704affbd2879ece5beb572
 ├── sopkathon-ddip-firebase-adminsdk-ihf3b-a84c58dffc.json
 └── ui-debug.log
 ```
+## package.json
+
+![image](https://user-images.githubusercontent.com/61377122/142740776-843dce28-02b4-4dfd-b912-7af7ad5515d2.png)
+## ERD
+
+![ddip (1)](https://user-images.githubusercontent.com/61377122/142740781-63ccb5a4-7d58-4101-be4e-c3d94bd5204f.png)
+
+## Tables
+![image (3)](https://user-images.githubusercontent.com/61377122/142740782-4e699752-55c3-4a01-841d-9d3cfd0336ae.png)
+![image (2)](https://user-images.githubusercontent.com/61377122/142740783-c5c9d5c5-4b89-4fc7-b2f3-eadbaa8cf91f.png)
+![image (1)](https://user-images.githubusercontent.com/61377122/142740785-09248e48-264c-4263-9083-043a503bd6e6.png)
